@@ -4,11 +4,12 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-nativ
 const LoginScreen = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome Back</Text>
-      <TextInput style={styles.input} placeholder="Email" placeholderTextColor="#A6A6A6" />
-      <TextInput style={styles.input} placeholder="Password" placeholderTextColor="#A6A6A6" secureTextEntry />
+      <Text style={styles.title}>Hoş Geldiniz</Text>
+      <TextInput style={styles.input} placeholder="E-mail" placeholderTextColor="#A6A6A6" />
+      <TextInput style={styles.input} placeholder="Şifre" placeholderTextColor="#A6A6A6" secureTextEntry />
       <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Login</Text>
+        <Text style={styles.buttonText}>Giriş Yap</Text>
+        <Text style={styles.buttonText}>Kayıt Ol</Text>
       </TouchableOpacity>
     </View>
   );
