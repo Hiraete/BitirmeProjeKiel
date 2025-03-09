@@ -1,8 +1,22 @@
 import React from "react";
 import { Button, Input, VStack, Text, Image, HStack, Pressable } from "@gluestack-ui/themed";
 import { SafeAreaView } from "react-native";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-const LoginScreen = ({ navigation }) => {
+// Ekranlar için parametre listesini tanımlayın
+type RootStackParamList = {
+  Login: undefined;
+  Register: undefined;
+  ForgotPassword: undefined;
+  Dashboard: undefined;
+};
+
+// Türleri her ekrana ekleyin
+type LoginScreenProps = NativeStackScreenProps<RootStackParamList, "Login">;
+type RegisterScreenProps = NativeStackScreenProps<RootStackParamList, "Register">;
+type ForgotPasswordScreenProps = NativeStackScreenProps<RootStackParamList, "ForgotPassword">;
+
+const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#fff" }}>
       <VStack space={4} alignItems="center" w="80%">
@@ -44,7 +58,7 @@ const LoginScreen = ({ navigation }) => {
   );
 };
 
-const RegisterScreen = ({ navigation }) => {
+const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#fff" }}>
       <VStack space={4} alignItems="center" w="80%">
@@ -58,7 +72,7 @@ const RegisterScreen = ({ navigation }) => {
   );
 };
 
-const ForgotPasswordScreen = ({ navigation }) => {
+const ForgotPasswordScreen: React.FC<ForgotPasswordScreenProps> = ({ navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#fff" }}>
       <VStack space={4} alignItems="center" w="80%">
