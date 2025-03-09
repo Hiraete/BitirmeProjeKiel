@@ -1,57 +1,73 @@
 import React from "react";
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
+import { Button, Input, VStack, Text, Image, HStack, Pressable } from "@gluestack-ui/themed";
+import { SafeAreaView } from "react-native";
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Hoş Geldiniz</Text>
-      <TextInput style={styles.input} placeholder="E-mail" placeholderTextColor="#A6A6A6" />
-      <TextInput style={styles.input} placeholder="Şifre" placeholderTextColor="#A6A6A6" secureTextEntry />
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Giriş Yap</Text>
-        <Text style={styles.buttonText}>Kayıt Ol</Text>
-      </TouchableOpacity>
-    </View>
+    <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#fff" }}>
+      <VStack space={4} alignItems="center" w="80%">
+        {/* Kiel Logo */}
+        <Image source={require("../assets/kiel-logo.png")} style={{ width: 150, height: 150, resizeMode: "contain" }} />
+        
+        {/* Hoş Geldiniz Mesajı */}
+        <Text fontSize="lg" fontWeight="bold">Hoş Geldiniz!</Text>
+        <Text fontSize="sm" color="gray.500">Aileniz için en iyi desteği alın</Text>
+        
+        {/* Giriş Formu */}
+        <Input placeholder="E-posta" w="100%" />
+        <Input placeholder="Şifre" type="password" w="100%" />
+        
+        {/* Şifremi Unuttum */}
+        <Pressable onPress={() => navigation.navigate("ForgotPassword")}>
+          <Text fontSize="sm" color="blue.500" alignSelf="flex-end">Şifremi Unuttum?</Text>
+        </Pressable>
+        
+        {/* Giriş Yap Butonu */}
+        <Button w="100%" onPress={() => navigation.navigate("Dashboard")}>Giriş Yap</Button>
+        
+        {/* Sosyal Medya ile Giriş */}
+        <Text fontSize="sm" color="gray.400">veya</Text>
+        <HStack space={4}>
+          <Button variant="outline" w="45%">Google ile Giriş</Button>
+          <Button variant="outline" w="45%">Apple ile Giriş</Button>
+        </HStack>
+        
+        {/* Kayıt Ol Linki */}
+        <HStack space={1}>
+          <Text fontSize="sm">Hesabın yok mu?</Text>
+          <Pressable onPress={() => navigation.navigate("Register")}> 
+            <Text fontSize="sm" color="blue.500">Kayıt Ol</Text>
+          </Pressable>
+        </HStack>
+      </VStack>
+    </SafeAreaView>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#F8E8EE", // Pastel pembe
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 20,
-  },
-  title: {
-    fontSize: 28,
-    color: "#8B5E83",
-    fontWeight: "bold",
-    marginBottom: 20,
-  },
-  input: {
-    width: "100%",
-    height: 50,
-    backgroundColor: "#FFF5F8",
-    borderRadius: 10,
-    paddingHorizontal: 15,
-    marginBottom: 15,
-    fontSize: 16,
-    color: "#333",
-  },
-  button: {
-    width: "100%",
-    height: 50,
-    backgroundColor: "#B8A4C9",
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 10,
-  },
-  buttonText: {
-    color: "#FFF",
-    fontSize: 18,
-    fontWeight: "bold",
-  },
-});
+const RegisterScreen = ({ navigation }) => {
+  return (
+    <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#fff" }}>
+      <VStack space={4} alignItems="center" w="80%">
+        <Text fontSize="lg" fontWeight="bold">Kayıt Ol</Text>
+        <Input placeholder="Adınız" w="100%" />
+        <Input placeholder="E-posta" w="100%" />
+        <Input placeholder="Şifre" type="password" w="100%" />
+        <Button w="100%" onPress={() => navigation.navigate("Dashboard")}>Kayıt Ol</Button>
+      </VStack>
+    </SafeAreaView>
+  );
+};
 
-export default LoginScreen;
+const ForgotPasswordScreen = ({ navigation }) => {
+  return (
+    <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#fff" }}>
+      <VStack space={4} alignItems="center" w="80%">
+        <Text fontSize="lg" fontWeight="bold">Şifremi Unuttum</Text>
+        <Input placeholder="E-posta" w="100%" />
+        <Button w="100%" onPress={() => alert("Şifre sıfırlama bağlantısı gönderildi.")}>Gönder</Button>
+      </VStack>
+    </SafeAreaView>
+  );
+};
+
+export { LoginScreen, RegisterScreen, ForgotPasswordScreen };
