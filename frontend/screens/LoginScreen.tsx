@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Input, VStack, Text, Image, HStack, Pressable } from "@gluestack-ui/themed";
+import { Button, Input, VStack, Text, Image, HStack, Pressable } from "@gluestack-ui v2";
 import { SafeAreaView } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 

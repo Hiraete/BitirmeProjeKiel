@@ -1,0 +1,1 @@
+const {withNativeWind} = require('nativewind/metro');
