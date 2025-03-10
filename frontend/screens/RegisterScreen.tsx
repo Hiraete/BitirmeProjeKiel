@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, Text, StyleSheet } from 'react-native';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';s
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../App'; // Param list importu
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Login'>;
+type Props = NativeStackScreenProps<RootStackParamList, 'Register'>;
 
-const LoginScreen: React.FC<Props> = ({ navigation }) => {
+const RegisterScreen: React.FC<Props> = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    // Burada login işlemi yapılabilir, örneğin API'ye istek gönderebilirsiniz
-    console.log('Logging in with:', email, password);
-    // Giriş başarılı ise Home ekranına geçiş
-    navigation.navigate('Home');
+  const handleRegister = () => {
+    // Burada register işlemi yapılabilir, örneğin API'ye istek gönderebilirsiniz
+    console.log('Registering with:', email, password);
+    // Kayıt başarılı ise login ekranına yönlendir
+    navigation.navigate('Login');
   };
 
   return (
     <View style={styles.container}>
-      <Text>Login</Text>
+      <Text>Register</Text>
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -32,8 +32,8 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
         value={password}
         onChangeText={setPassword}
       />
-      <Button title="Login" onPress={handleLogin} />
-      <Text onPress={() => navigation.navigate('Register')}>Don't have an account? Register</Text>
+      <Button title="Register" onPress={handleRegister} />
+      <Text onPress={() => navigation.navigate('Login')}>Already have an account? Login</Text>
     </View>
   );
 };
@@ -53,4 +53,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginScreen;
+export default RegisterScreen;
