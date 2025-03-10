@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, Text, StyleSheet } from 'react-native';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';s
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../App'; // Param list importu
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Login'>;
